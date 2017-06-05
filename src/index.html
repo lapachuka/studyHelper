@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-
+  <!-- index.html -->
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
- 
+
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
@@ -27,6 +27,19 @@
 
 </head>
 <body>
+<script src="https://www.gstatic.com/firebasejs/4.1.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCYMlMc5AqiCWLDC0ASkBI9kXRThr2w9Pk",
+    authDomain: "reference-smile-86912.firebaseapp.com",
+    databaseURL: "https://reference-smile-86912.firebaseio.com",
+    projectId: "reference-smile-86912",
+    storageBucket: "reference-smile-86912.appspot.com",
+    messagingSenderId: "661520275753"
+  };
+  firebase.initializeApp(config);
+</script>
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>

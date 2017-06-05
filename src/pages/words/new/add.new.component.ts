@@ -1,45 +1,49 @@
 import {NavParams, ViewController} from "ionic-angular";
 import {Component} from "@angular/core";
-import {AngularFireDatabase, FirebaseObjectObservable} from "angularfire2/database";
+import {AngularFireDatabase} from "angularfire2/database";
 
 @Component({
-  selector: 'add-new',
+  selector: 'add-new-word',
   templateUrl: 'add.new.tpl.html'
 })
-export class ModalContentPage {
-  category;
+export class WordModalContent {
+  word;
   mode;
-  item: FirebaseObjectObservable<any[]>;
+  wordList;
 
-  constructor(public viewCtrl: ViewController,
-              params: NavParams,
-              public db: AngularFireDatabase) {
-    let categoryParam = params.get('category') ? params.get('category') : '';
+  constructor(
+    public viewCtrl: ViewController,
+    public db: AngularFireDatabase,
+          params: NavParams
+  ) {
 
-    if (categoryParam.$key) {
-      this.mode = 'edit';
-      this.category = this.db.object('categories/' + categoryParam.$key);
-      this.category.value = categoryParam.value;
-    } else {
-      this.mode = 'create';
-      this.category = {value: ''};
-    }
+    let data = params.get('word') ? params.get('word') : {};
+    let categoryId = params.get('categoryId') ? params.get('categoryId') : '';
 
+    this.mode = data.$key ? 'update': 'create';
+    this.word = data;
+
+    this.wordList = this.db.list('/words/' + categoryId);
   }
 
-  deleteItem() {
-    this.category.remove();
-    this.viewCtrl.dismiss();
+  add(){
+    this.wordList.push(this.word);
+    this.word = {
+      front: '',
+      back: ''
+    }
   }
 
   dismiss() {
-    if(this.mode === 'edit'){
-      this.category.update({value: this.category.value});
-    }
-    this.viewCtrl.dismiss(this.category);
+    this.viewCtrl.dismiss({data: this.word, mode: this.mode});
   }
 
   cancel() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({});
+  }
+
+  deleteItem(){
+    this.mode = 'delete';
+    this.viewCtrl.dismiss({data: this.word, mode: this.mode});
   }
 }

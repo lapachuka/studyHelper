@@ -1,0 +1,21 @@
+page-process {
+
+  .back-word{
+    min-height: 100px;
+  }
+
+  .back-word,
+  .front-word{
+    text-align: center;
+  }
+
+  .front-word{
+    font-size: 3rem;
+  }
+
+  .back-word{
+    font-size: 2.7rem;
+    color: #666666;
+    font-weight: 500;
+  }
+}

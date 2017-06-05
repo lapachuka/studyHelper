@@ -1,3 +1,33 @@
 page-home {
 
 }
+
+ion-item {
+  .item-inner{
+    font-size: 2rem;
+  }
+
+  button{
+    font-size: 2rem;
+    min-height: 35px;
+    min-width: 40px;
+  }
+}
+
+
+.add-button {
+  bottom: 60px;
+  right: 30px;
+  button {
+    width: 90px;
+    height: 90px;
+    ion-icon {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.go-to-text {
+  padding: 10px;
+}

@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Good luck</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="front-word">
+      {{currentQuestion.front}}
+    </ion-card-header>
+
+    <ion-card-content class="back-word">
+      <span  [hidden]="!isBackWordShowed">{{currentQuestion.back}}</span>
+    </ion-card-content>
+  </ion-card>
+  <div padding text-center>
+    <button ion-button icon-left (click)="showBackWord()">
+      <ion-icon name="ios-color-wand"></ion-icon>
+      Show
+    </button>
+    <button ion-button icon-right  item-right (click)="nextQuestion()">
+      Next
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </button>
+  </div>
+
+
+</ion-content>

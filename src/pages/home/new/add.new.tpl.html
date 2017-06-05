@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Word details
+      New category
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -14,14 +14,10 @@
 
 <ion-content padding>
   <ion-item padding>
-    <ion-label fixed>Front word</ion-label>
-    <ion-input type="text" [(ngModel)]="word.front"></ion-input>
+    <ion-label fixed>Category</ion-label>
+    <ion-input type="text" [(ngModel)]="category.value"></ion-input>
   </ion-item>
-  <ion-item padding>
-    <ion-label fixed>Back word</ion-label>
-    <ion-input type="text" [(ngModel)]="word.back"></ion-input>
-  </ion-item><!--
-  <button ion-button full color="secondary" (click)="add()" *ngIf="mode !== 'update'">Add</button>-->
+
   <button ion-button full color="secondary" (click)="dismiss()">Save</button>
   <button ion-button full color="danger" (click)="deleteItem()" *ngIf="mode == 'update'">Delete</button>
   <button ion-button full color="warning" (click)="cancel()">Cancel</button>

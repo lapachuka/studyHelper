@@ -1,0 +1,47 @@
+<!--
+  Generated template for the AuthPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content center text-center>
+
+  <form #form="ngForm"  novalidate autocomplete="off" >
+
+
+    <ion-card class="center-card">
+      <ion-card-header>
+        {{mode}}
+      </ion-card-header>
+      <p class="danger">{{errors}}</p>
+      <ion-list no-padding>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" name="email" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" name="password" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="mode ==='Registration'">
+          <ion-label floating>Confirm password</ion-label>
+          <ion-input type="password" name="rePassword" ngModel required></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <div class="login-block" *ngIf="mode === 'Login'">
+      <button ion-button block (click)="login(form)" >Login</button>
+      <button  ion-button color="secondary" clear (click)="switchForm('registration')">Registration</button>
+    </div>
+
+    <div class="registration-block" *ngIf="mode === 'Registration'">
+      <button ion-button block (click)="signUp(form)">Registration</button>
+      <button  ion-button color="secondary" clear (click)="switchForm('login')">Back to login</button>>
+    </div>
+
+  </form>
+
+</ion-content>
